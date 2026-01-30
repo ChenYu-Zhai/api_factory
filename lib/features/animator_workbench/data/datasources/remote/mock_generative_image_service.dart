@@ -1,7 +1,8 @@
 import 'dart:async';
-import 'package:uuid/uuid.dart';
+
 import 'package:api_factory/features/animator_workbench/domain/entities/asset.dart';
 import 'package:api_factory/features/animator_workbench/domain/services/i_generative_image_service.dart';
+import 'package:uuid/uuid.dart';
 
 class MockGenerativeImageService implements IGenerativeImageService {
   @override

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../domain/entities/task.dart';
+
 import '../../data/services/task_queue_service.dart';
+import '../../domain/entities/task.dart';
 import 'dependency_injection.dart';
 
 final taskQueueServiceProvider = Provider<TaskQueueService>((ref) {

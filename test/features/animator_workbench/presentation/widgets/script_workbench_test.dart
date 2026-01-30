@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:api_factory/features/animator_workbench/presentation/widgets/script_workbench.dart';
-import 'package:api_factory/features/animator_workbench/presentation/providers/dependency_injection.dart';
-import 'package:api_factory/features/animator_workbench/domain/services/i_script_parser.dart';
-import 'package:api_factory/features/animator_workbench/domain/services/i_ai_script_analysis_service.dart';
-import 'package:api_factory/features/animator_workbench/domain/repositories/i_script_import_repository.dart';
 import 'package:api_factory/features/animator_workbench/domain/entities/scene.dart';
+import 'package:api_factory/features/animator_workbench/domain/repositories/i_script_import_repository.dart';
+import 'package:api_factory/features/animator_workbench/domain/services/i_ai_script_analysis_service.dart';
+import 'package:api_factory/features/animator_workbench/domain/services/i_script_parser.dart';
+import 'package:api_factory/features/animator_workbench/presentation/providers/dependency_injection.dart';
+import 'package:api_factory/features/animator_workbench/presentation/widgets/script_workbench.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 // Mock classes
 class MockScriptParser implements IScriptParser {

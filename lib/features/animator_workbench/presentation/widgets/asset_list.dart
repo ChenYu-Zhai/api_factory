@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../../../core/theme/app_colors.dart';
+import '../../data/datasources/mock_workbench_data.dart';
 import '../../domain/entities/asset.dart';
 import '../../domain/entities/task.dart';
-import '../../data/datasources/mock_workbench_data.dart';
-import '../providers/dependency_injection.dart';
-import '../providers/task_queue_provider.dart';
 import '../pages/asset_details_page.dart';
+import '../providers/task_queue_provider.dart';
 import 'placeholder_card.dart';
 
 final assetListProvider = StreamProvider.family<List<Asset>, String>((ref, projectId) async* {
@@ -93,7 +93,7 @@ class AssetList extends ConsumerWidget {
                               Expanded(
                                 child: Container(
                                   color: AppColors.surface,
-                                  child: Icon(Icons.image, size: 48, color: AppColors.textSecondary.withOpacity(0.5)),
+                                  child: Icon(Icons.image, size: 48, color: AppColors.textSecondary.withValues(alpha:0.5)),
                                 ),
                               ),
                               Container(
@@ -105,7 +105,7 @@ class AssetList extends ConsumerWidget {
                                     Text(
                                       asset.type.toString().split('.').last.toUpperCase(),
                                       style: TextStyle(
-                                        color: AppColors.textPrimary.withOpacity(0.7),
+                                        color: AppColors.textPrimary.withValues(alpha:0.7),
                                         fontSize: 10,
                                         fontWeight: FontWeight.bold
                                       ),

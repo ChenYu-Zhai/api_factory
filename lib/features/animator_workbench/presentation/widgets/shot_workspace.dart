@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
+
 import '../../../../../core/theme/app_colors.dart';
-import '../../domain/entities/asset.dart';
 import '../../data/datasources/mock_workbench_data.dart';
+import '../../domain/entities/asset.dart';
 import '../providers/workbench_state_provider.dart';
 import 'asset_list.dart';
 import 'refinement_panel.dart';
@@ -93,7 +94,7 @@ class ShotWorkspace extends ConsumerWidget {
                       Container(
                         color: AppColors.surfaceVariant,
                         child: Center(
-                          child: Icon(Icons.movie_creation_outlined, color: AppColors.textPrimary.withOpacity(0.24), size: 48),
+                          child: Icon(Icons.movie_creation_outlined, color: AppColors.textPrimary.withValues(alpha:0.24), size: 48),
                         ),
                       ),
                       // Shot Name Overlay
@@ -143,7 +144,7 @@ class ShotWorkspace extends ConsumerWidget {
       final shots = scene['shots'] as List<Map<String, dynamic>>;
       try {
         currentShot = shots.firstWhere((s) => s['id'] == shotId);
-        if (currentShot != null) break;
+        break;
       } catch (_) {}
     }
 
@@ -173,7 +174,7 @@ class ShotWorkspace extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppColors.success.withOpacity(0.2),
+                          color: AppColors.success.withValues(alpha:0.2),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: const Text(
@@ -245,7 +246,7 @@ class ShotWorkspace extends ConsumerWidget {
                 child: Container(
                   margin: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.textSecondary.withOpacity(0.3)),
+                    border: Border.all(color: AppColors.textSecondary.withValues(alpha:0.3)),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Column(

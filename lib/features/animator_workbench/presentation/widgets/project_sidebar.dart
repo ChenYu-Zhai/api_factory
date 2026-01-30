@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../../../core/theme/app_colors.dart';
-import '../providers/workbench_state_provider.dart';
 import '../../data/datasources/mock_workbench_data.dart';
+import '../providers/workbench_state_provider.dart';
 
 class ProjectSidebar extends ConsumerWidget {
   const ProjectSidebar({super.key});

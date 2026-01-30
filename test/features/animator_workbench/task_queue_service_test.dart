@@ -1,9 +1,9 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import 'package:mockito/annotations.dart';
+import 'package:api_factory/features/animator_workbench/data/services/task_queue_service.dart';
 import 'package:api_factory/features/animator_workbench/domain/entities/task.dart';
 import 'package:api_factory/features/animator_workbench/domain/repositories/i_task_repository.dart';
-import 'package:api_factory/features/animator_workbench/data/services/task_queue_service.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
 
 @GenerateMocks([ITaskRepository])
 import 'task_queue_service_test.mocks.dart';

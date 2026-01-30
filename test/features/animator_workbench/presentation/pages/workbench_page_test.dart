@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:api_factory/main.dart';
-import 'package:api_factory/features/animator_workbench/presentation/widgets/storyboard_workbench.dart';
-import 'package:api_factory/features/animator_workbench/presentation/widgets/script_workbench.dart';
 import 'package:api_factory/features/animator_workbench/presentation/widgets/character_workbench.dart';
+import 'package:api_factory/features/animator_workbench/presentation/widgets/script_workbench.dart';
+import 'package:api_factory/features/animator_workbench/presentation/widgets/storyboard_workbench.dart';
+import 'package:api_factory/main.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('WorkbenchPage navigation test', (WidgetTester tester) async {

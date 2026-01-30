@@ -21,7 +21,7 @@ class AppColors {
   static const Color pending = Colors.grey;
 
   // Overlays
-  static final Color overlay = Colors.black.withOpacity(0.7);
-  static final Color selectionOverlay = Colors.blue.withOpacity(0.2);
-  static final Color hoverOverlay = Colors.white.withOpacity(0.1);
+  static final Color overlay = Colors.black.withValues(alpha: 0.7);
+  static final Color selectionOverlay = Colors.blue.withValues(alpha: 0.2);
+  static final Color hoverOverlay = Colors.white.withValues(alpha: 0.1);
 }

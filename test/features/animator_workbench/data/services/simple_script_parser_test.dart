@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:api_factory/features/animator_workbench/data/services/simple_script_parser.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('SimpleScriptParser', () {

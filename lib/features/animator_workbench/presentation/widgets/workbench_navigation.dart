@@ -45,7 +45,7 @@ class WorkbenchNavigation extends ConsumerWidget {
       unselectedLabelTextStyle: const TextStyle(color: AppColors.textSecondary, fontSize: 10),
       selectedLabelTextStyle: const TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.bold),
       useIndicator: true,
-      indicatorColor: AppColors.primary.withOpacity(0.1),
+      indicatorColor: AppColors.primary.withValues(alpha:0.1),
     );
   }
 }

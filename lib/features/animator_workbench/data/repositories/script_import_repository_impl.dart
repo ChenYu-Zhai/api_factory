@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 import '../../domain/entities/scene.dart';
 import '../../domain/repositories/i_script_import_repository.dart';
@@ -27,7 +28,7 @@ class ScriptImportRepositoryImpl implements IScriptImportRepository {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/project_data.json');
       
-      List<Map<String, dynamic>> existingData = [];
+      var existingData = <Map<String, dynamic>>[];
       if (await file.exists()) {
         final content = await file.readAsString();
         if (content.isNotEmpty) {
@@ -53,9 +54,9 @@ class ScriptImportRepositoryImpl implements IScriptImportRepository {
       existingData.addAll(newScenesData);
 
       await file.writeAsString(json.encode(existingData));
-      print('Saved imported scenes to ${file.path}');
+      debugPrint('Saved imported scenes to ${file.path}');
     } catch (e) {
-      print('Error saving to JSON file: $e');
+      debugPrint('Error saving to JSON file: $e');
       // Consider rethrowing or handling error more gracefully
     }
   }
