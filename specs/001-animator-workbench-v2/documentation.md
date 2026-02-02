@@ -64,3 +64,42 @@ Run unit tests with:
 ```bash
 flutter test
 ```
+
+### Test Coverage
+
+The project includes 5 test files covering Data, State, and UI layers:
+
+#### 1. Data Layer
+- **`task_queue_service_test.dart`**: Tests `TaskQueueService` initialization and task processing queue logic.
+- **`simple_script_parser_test.dart`**: Tests `SimpleScriptParser` for parsing scripts with both English and Chinese keywords.
+
+#### 2. State Management Layer
+- **`workbench_state_provider_test.dart`**: Tests `WorkbenchStateNotifier` for module switching, scene selection/expansion, and shot selection.
+
+#### 3. UI Layer
+- **`workbench_page_test.dart`**: Tests main application navigation between Storyboard, Script, Characters, and Settings modules.
+- **`script_workbench_test.dart`**: Tests `ScriptWorkbench` functionality, including AI analysis triggering and tab switching.
+
+### Test Architecture
+
+```mermaid
+graph TB
+    subgraph "UI Layer"
+        A[workbench_page_test.dart]
+        B[script_workbench_test.dart]
+    end
+    
+    subgraph "State Layer"
+        C[workbench_state_provider_test.dart]
+    end
+    
+    subgraph "Data Layer"
+        D[task_queue_service_test.dart]
+        E[simple_script_parser_test.dart]
+    end
+    
+    A --> C
+    B --> C
+    D --> F[(ITaskRepository)]
+    E --> G[SimpleScriptParser]
+```

@@ -14,7 +14,6 @@ void main() {
 
   setUp(() {
     mockRepository = MockITaskRepository();
-    service = TaskQueueService(mockRepository);
   });
 
   test('should load pending tasks on init', () async {
@@ -23,6 +22,7 @@ void main() {
     when(mockRepository.getPendingTasks()).thenAnswer((_) async => []);
 
     // Act
+    service = TaskQueueService(mockRepository);
     // Service init is called in constructor
     // We need to wait a bit for the async init to complete
     await Future.delayed(Duration.zero);
@@ -47,6 +47,8 @@ void main() {
     when(mockRepository.getPendingTasks()).thenAnswer((_) async => [task]);
     when(mockRepository.updateTaskStatus(any, any)).thenAnswer((_) async {});
     when(mockRepository.saveTask(any)).thenAnswer((_) async {});
+
+    service = TaskQueueService(mockRepository);
 
     // Act
     await service.queueTask(task);
