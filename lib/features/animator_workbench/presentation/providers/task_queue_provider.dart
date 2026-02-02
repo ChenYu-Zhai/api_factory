@@ -6,7 +6,15 @@ import 'dependency_injection.dart';
 
 final taskQueueServiceProvider = Provider<TaskQueueService>((ref) {
   final taskRepository = ref.watch(taskRepositoryProvider);
-  return TaskQueueService(taskRepository);
+  final geminiService = ref.watch(geminiServiceProvider);
+  final midjourneyService = ref.watch(midjourneyServiceProvider);
+  final veoService = ref.watch(veoServiceProvider);
+  return TaskQueueService(
+    taskRepository,
+    geminiService,
+    midjourneyService,
+    veoService,
+  );
 });
 
 final taskListProvider = StreamProvider<List<Task>>((ref) {

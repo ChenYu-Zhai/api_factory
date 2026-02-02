@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/theme/app_theme.dart';
 import 'features/animator_workbench/presentation/providers/workbench_state_provider.dart';
@@ -6,8 +7,10 @@ import 'features/animator_workbench/presentation/widgets/character_workbench.dar
 import 'features/animator_workbench/presentation/widgets/script_workbench.dart';
 import 'features/animator_workbench/presentation/widgets/storyboard_workbench.dart';
 import 'features/animator_workbench/presentation/widgets/workbench_navigation.dart';
+import 'features/animator_workbench/presentation/pages/api_verification_page.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: '.env');
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -19,7 +22,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Animator Workbench',
       theme: AppTheme.darkTheme,
-      home: const WorkbenchPage(),
+      // Temporary switch to verification page for testing
+      // home: const WorkbenchPage(),
+      home: const ApiVerificationPage(),
     );
   }
 }

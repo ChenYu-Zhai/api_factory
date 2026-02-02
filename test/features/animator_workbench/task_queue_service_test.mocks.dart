@@ -3,12 +3,24 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:api_factory/features/animator_workbench/domain/entities/task.dart'
-    as _i4;
-import 'package:api_factory/features/animator_workbench/domain/repositories/i_task_repository.dart'
+import 'package:api_factory/features/animator_workbench/data/models/midjourney_response.dart'
+    as _i8;
+import 'package:api_factory/features/animator_workbench/data/models/veo_response.dart'
+    as _i10;
+import 'package:api_factory/features/animator_workbench/data/services/gemini_service.dart'
+    as _i6;
+import 'package:api_factory/features/animator_workbench/data/services/midjourney_service.dart'
+    as _i7;
+import 'package:api_factory/features/animator_workbench/data/services/veo_service.dart'
+    as _i9;
+import 'package:api_factory/features/animator_workbench/domain/entities/asset.dart'
     as _i2;
+import 'package:api_factory/features/animator_workbench/domain/entities/task.dart'
+    as _i5;
+import 'package:api_factory/features/animator_workbench/domain/repositories/i_task_repository.dart'
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -26,43 +38,48 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
+class _FakeAsset_0 extends _i1.SmartFake implements _i2.Asset {
+  _FakeAsset_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [ITaskRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockITaskRepository extends _i1.Mock implements _i2.ITaskRepository {
+class MockITaskRepository extends _i1.Mock implements _i3.ITaskRepository {
   MockITaskRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.Task>> getPendingTasks() =>
+  _i4.Future<List<_i5.Task>> getPendingTasks() =>
       (super.noSuchMethod(
             Invocation.method(#getPendingTasks, []),
-            returnValue: _i3.Future<List<_i4.Task>>.value(<_i4.Task>[]),
+            returnValue: _i4.Future<List<_i5.Task>>.value(<_i5.Task>[]),
           )
-          as _i3.Future<List<_i4.Task>>);
+          as _i4.Future<List<_i5.Task>>);
 
   @override
-  _i3.Future<List<_i4.Task>> getAllTasks() =>
+  _i4.Future<List<_i5.Task>> getAllTasks() =>
       (super.noSuchMethod(
             Invocation.method(#getAllTasks, []),
-            returnValue: _i3.Future<List<_i4.Task>>.value(<_i4.Task>[]),
+            returnValue: _i4.Future<List<_i5.Task>>.value(<_i5.Task>[]),
           )
-          as _i3.Future<List<_i4.Task>>);
+          as _i4.Future<List<_i5.Task>>);
 
   @override
-  _i3.Future<void> saveTask(_i4.Task? task) =>
+  _i4.Future<void> saveTask(_i5.Task? task) =>
       (super.noSuchMethod(
             Invocation.method(#saveTask, [task]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i4.Future<void>);
 
   @override
-  _i3.Future<void> updateTaskStatus(
+  _i4.Future<void> updateTaskStatus(
     String? taskId,
-    _i4.TaskStatus? status, {
+    _i5.TaskStatus? status, {
     String? errorMessage,
   }) =>
       (super.noSuchMethod(
@@ -71,17 +88,158 @@ class MockITaskRepository extends _i1.Mock implements _i2.ITaskRepository {
               [taskId, status],
               {#errorMessage: errorMessage},
             ),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i4.Future<void>);
 
   @override
-  _i3.Future<void> deleteTask(String? id) =>
+  _i4.Future<void> deleteTask(String? id) =>
       (super.noSuchMethod(
             Invocation.method(#deleteTask, [id]),
-            returnValue: _i3.Future<void>.value(),
-            returnValueForMissingStub: _i3.Future<void>.value(),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
           )
-          as _i3.Future<void>);
+          as _i4.Future<void>);
+}
+
+/// A class which mocks [GeminiService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGeminiService extends _i1.Mock implements _i6.GeminiService {
+  MockGeminiService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Asset> generateImage(Map<String, dynamic>? parameters) =>
+      (super.noSuchMethod(
+            Invocation.method(#generateImage, [parameters]),
+            returnValue: _i4.Future<_i2.Asset>.value(
+              _FakeAsset_0(
+                this,
+                Invocation.method(#generateImage, [parameters]),
+              ),
+            ),
+          )
+          as _i4.Future<_i2.Asset>);
+
+  @override
+  _i4.Future<_i2.Asset> refineImage(
+    _i2.Asset? sourceAsset,
+    Map<String, dynamic>? parameters,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#refineImage, [sourceAsset, parameters]),
+            returnValue: _i4.Future<_i2.Asset>.value(
+              _FakeAsset_0(
+                this,
+                Invocation.method(#refineImage, [sourceAsset, parameters]),
+              ),
+            ),
+          )
+          as _i4.Future<_i2.Asset>);
+}
+
+/// A class which mocks [MidjourneyService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockMidjourneyService extends _i1.Mock implements _i7.MidjourneyService {
+  MockMidjourneyService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<String?> submitImagine(String? prompt) =>
+      (super.noSuchMethod(
+            Invocation.method(#submitImagine, [prompt]),
+            returnValue: _i4.Future<String?>.value(),
+          )
+          as _i4.Future<String?>);
+
+  @override
+  _i4.Future<_i8.MidjourneyResponse?> fetchTaskResult(String? taskId) =>
+      (super.noSuchMethod(
+            Invocation.method(#fetchTaskResult, [taskId]),
+            returnValue: _i4.Future<_i8.MidjourneyResponse?>.value(),
+          )
+          as _i4.Future<_i8.MidjourneyResponse?>);
+
+  @override
+  _i4.Future<_i2.Asset> downloadAndSaveImage(
+    String? imageUrl,
+    String? projectId,
+    String? prompt,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#downloadAndSaveImage, [
+              imageUrl,
+              projectId,
+              prompt,
+            ]),
+            returnValue: _i4.Future<_i2.Asset>.value(
+              _FakeAsset_0(
+                this,
+                Invocation.method(#downloadAndSaveImage, [
+                  imageUrl,
+                  projectId,
+                  prompt,
+                ]),
+              ),
+            ),
+          )
+          as _i4.Future<_i2.Asset>);
+}
+
+/// A class which mocks [VeoService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockVeoService extends _i1.Mock implements _i9.VeoService {
+  MockVeoService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<String?> createVideo(
+    String? prompt, {
+    String? model = 'veo3-fast-frames',
+  }) =>
+      (super.noSuchMethod(
+            Invocation.method(#createVideo, [prompt], {#model: model}),
+            returnValue: _i4.Future<String?>.value(),
+          )
+          as _i4.Future<String?>);
+
+  @override
+  _i4.Future<_i10.VeoResponse?> queryTask(String? taskId) =>
+      (super.noSuchMethod(
+            Invocation.method(#queryTask, [taskId]),
+            returnValue: _i4.Future<_i10.VeoResponse?>.value(),
+          )
+          as _i4.Future<_i10.VeoResponse?>);
+
+  @override
+  _i4.Future<_i2.Asset> downloadAndSaveVideo(
+    String? videoUrl,
+    String? projectId,
+    String? prompt,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#downloadAndSaveVideo, [
+              videoUrl,
+              projectId,
+              prompt,
+            ]),
+            returnValue: _i4.Future<_i2.Asset>.value(
+              _FakeAsset_0(
+                this,
+                Invocation.method(#downloadAndSaveVideo, [
+                  videoUrl,
+                  projectId,
+                  prompt,
+                ]),
+              ),
+            ),
+          )
+          as _i4.Future<_i2.Asset>);
 }

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-enum TaskType { refineFaceSwap, refineInpainting, convert, generateVideo }
+enum TaskType { refineFaceSwap, refineInpainting, convert, generateVideo, generateImage }
 enum TaskStatus { pending, processing, completed, failed }
 
 class Task extends Equatable {
