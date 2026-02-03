@@ -6,6 +6,9 @@ import '../../data/repositories/script_import_repository_impl.dart';
 import '../../data/repositories/task_repository_impl.dart';
 import '../../data/services/mock_ai_script_analysis_service.dart';
 import '../../data/services/simple_script_parser.dart';
+import '../../data/services/gemini_service.dart';
+import '../../data/services/midjourney_service.dart';
+import '../../data/services/veo_service.dart';
 import '../../domain/repositories/i_asset_repository.dart';
 import '../../domain/repositories/i_script_import_repository.dart';
 import '../../domain/repositories/i_task_repository.dart';
@@ -36,4 +39,16 @@ final scriptImportRepositoryProvider = Provider<IScriptImportRepository>((ref) {
 
 final aiScriptAnalysisServiceProvider = Provider<IAIScriptAnalysisService>((ref) {
   return MockAIScriptAnalysisService();
+});
+
+final geminiServiceProvider = Provider<GeminiService>((ref) {
+  return GeminiService();
+});
+
+final midjourneyServiceProvider = Provider<MidjourneyService>((ref) {
+  return MidjourneyService();
+});
+
+final veoServiceProvider = Provider<VeoService>((ref) {
+  return VeoService();
 });
