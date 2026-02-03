@@ -13,6 +13,7 @@ class Task extends Equatable {
   final String? errorMessage;
   final double progress;
   final int retryCount;
+  final String? externalTaskId;
   final DateTime createdAt;
   final DateTime updatedAt;
 
@@ -26,6 +27,7 @@ class Task extends Equatable {
     this.errorMessage,
     this.progress = 0.0,
     this.retryCount = 0,
+    this.externalTaskId,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -41,6 +43,7 @@ class Task extends Equatable {
         errorMessage,
         progress,
         retryCount,
+        externalTaskId,
         createdAt,
         updatedAt,
       ];

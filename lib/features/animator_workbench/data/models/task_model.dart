@@ -12,6 +12,7 @@ class TaskModel extends Task {
     super.errorMessage,
     super.progress,
     super.retryCount,
+    super.externalTaskId,
     required super.createdAt,
     required super.updatedAt,
   });
@@ -27,6 +28,7 @@ class TaskModel extends Task {
       errorMessage: map['error_message'],
       progress: map['progress'] ?? 0.0,
       retryCount: map['retry_count'] ?? 0,
+      externalTaskId: map['external_task_id'],
       createdAt: DateTime.fromMillisecondsSinceEpoch(map['created_at']),
       updatedAt: DateTime.fromMillisecondsSinceEpoch(map['updated_at']),
     );
@@ -43,6 +45,7 @@ class TaskModel extends Task {
       'error_message': errorMessage,
       'progress': progress,
       'retry_count': retryCount,
+      'external_task_id': externalTaskId,
       'created_at': createdAt.millisecondsSinceEpoch,
       'updated_at': updatedAt.millisecondsSinceEpoch,
     };
@@ -59,6 +62,7 @@ class TaskModel extends Task {
       errorMessage: task.errorMessage,
       progress: task.progress,
       retryCount: task.retryCount,
+      externalTaskId: task.externalTaskId,
       createdAt: task.createdAt,
       updatedAt: task.updatedAt,
     );

@@ -7,7 +7,7 @@ import 'features/animator_workbench/presentation/widgets/character_workbench.dar
 import 'features/animator_workbench/presentation/widgets/script_workbench.dart';
 import 'features/animator_workbench/presentation/widgets/storyboard_workbench.dart';
 import 'features/animator_workbench/presentation/widgets/workbench_navigation.dart';
-import 'features/animator_workbench/presentation/pages/api_verification_page.dart';
+import 'features/animator_workbench/presentation/pages/settings_page.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env');
@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Animator Workbench',
       theme: AppTheme.darkTheme,
       // Temporary switch to verification page for testing
-      // home: const WorkbenchPage(),
-      home: const ApiVerificationPage(),
+      home: const WorkbenchPage(),
+      // home: const ApiVerificationPage(),
     );
   }
 }
@@ -62,7 +62,7 @@ class WorkbenchPage extends ConsumerWidget {
       case WorkbenchModule.characters:
         return const CharacterWorkbench();
       case WorkbenchModule.settings:
-        return const Center(child: Text('设置 (开发中)'));
+        return const SettingsPage();
     }
   }
 }

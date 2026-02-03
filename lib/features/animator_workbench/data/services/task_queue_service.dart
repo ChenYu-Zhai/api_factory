@@ -11,6 +11,7 @@ class TaskQueueService {
   final MidjourneyService _midjourneyService;
   final VeoService _veoService;
   final StreamController<List<Task>> _taskStreamController = StreamController<List<Task>>.broadcast();
+  List<Task> _currentTasks = [];
   bool _isProcessing = false;
 
   TaskQueueService(
@@ -23,20 +24,22 @@ class TaskQueueService {
   }
 
   Stream<List<Task>> get tasks => _taskStreamController.stream;
+  List<Task> get currentTasks => _currentTasks;
 
   Future<void> _init() async {
-    await _refreshTasks();
+    await refresh();
     _processQueue();
   }
 
-  Future<void> _refreshTasks() async {
+  Future<void> refresh() async {
     final tasks = await _taskRepository.getAllTasks();
+    _currentTasks = tasks;
     _taskStreamController.add(tasks);
   }
 
   Future<void> queueTask(Task task) async {
     await _taskRepository.saveTask(task);
-    await _refreshTasks();
+    await refresh();
     _processQueue();
   }
 
@@ -57,7 +60,7 @@ class TaskQueueService {
   Future<void> _processTask(Task task) async {
     try {
       await _taskRepository.updateTaskStatus(task.id, TaskStatus.processing);
-      await _refreshTasks();
+      await refresh();
 
       switch (task.type) {
         case TaskType.generateImage:
@@ -88,7 +91,7 @@ class TaskQueueService {
       }
       await _taskRepository.updateTaskStatus(task.id, TaskStatus.failed, errorMessage: e.toString());
     } finally {
-      await _refreshTasks();
+      await refresh();
     }
   }
 
