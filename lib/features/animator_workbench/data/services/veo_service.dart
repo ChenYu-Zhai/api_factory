@@ -48,7 +48,15 @@ class VeoService {
     );
 
     if (response.statusCode == 200) {
-      return VeoResponse.fromJson(jsonDecode(response.body));
+      print('Veo Query Response: ${response.body}'); // Add logging
+      final json = jsonDecode(response.body);
+      // Handle both 'success' and 'completed' as success states
+      if (json['status'] == 'completed') {
+        json['status'] = 'success';
+      }
+      return VeoResponse.fromJson(json);
+    } else {
+      print('Veo Query Failed: ${response.statusCode} - ${response.body}'); // Add logging
     }
     return null;
   }
